@@ -1,0 +1,66 @@
+.home-div{
+    width: 85%;
+    margin: auto;
+    margin-top: 100px;
+    background-color: white;
+    border-radius: 20px;
+}
+.every-rental-div{
+    display: flex;
+    width: 80%;
+    padding: 2rem;
+    background-color: white;
+    text-align: left;
+    border-radius: 20px;
+    margin: auto;
+    margin-bottom: 2rem;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.info-div{
+    padding-left: 5rem;
+}
+.check-btn{
+    background-color:rgb(227,44,38);
+    border: #F9AA33;
+    height: 2rem;
+    border-radius: 5px;
+    width: 10rem;
+    font-size: 1rem;
+    color: white;
+}
+
+.btn-link{
+    color: white;
+    text-decoration: none;
+}
+.btn-link:hover{
+    text-decoration: underline;
+}
+.check-btn:hover{
+    cursor: pointer;
+}
+
+.rental-img{
+    width: 268px;
+    height: 188px;
+}
+
+@media only screen and (max-width: 600px) {
+    .every-rental-div {
+      display: block;
+    }
+    .rental-img{
+      
+       margin-left: 40px;
+    }
+    .info_div{
+        margin: auto;
+    }
+
+  }
