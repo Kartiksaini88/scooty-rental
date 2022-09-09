@@ -19,6 +19,8 @@ function App() {
   const [vehical , setvehical] = useState([])
   const [onein , setonein] = useState([])
   const [allformdata , setallformdata] = useState([])
+  const [loading , setloading] = useState(false)
+  const [error , seterror] = useState(false)
   
 
 
@@ -27,14 +29,17 @@ function App() {
  },[])
 
  const getData = ()=>{
+  setloading(true)
      axios('https://todo-soul.herokuapp.com/rental/')
      .then((res)=>{
          const {Outlets} = res.data.Data
          const {Outlet1data} = res.data.Data.Outlets[0]
          setvehical(Outlet1data)
          setdata(Outlets)
+         setloading(false)
+         seterror(false)
      }).catch((err)=>{
-         console.error(err);
+         seterror(true)
      })
  }  
   return (
@@ -42,7 +47,7 @@ function App() {
      <Navbar></Navbar>
     <div className="App">
       <Routes>
-      <Route path='' element={<Home data={data}></Home>}></Route>
+      <Route path='' element={<Home loading={loading} error = {error} data={data}></Home>}></Route>
       <Route path='/login' element={ <Login></Login> }></Route>
       <Route path='/register' element={<Register/>}></Route>
       <Route path='/vehical' element={<RequireAuth><Vehical allformdata={allformdata} setallformdata={setallformdata} onein={onein} setonein={setonein} vehical={vehical} ></Vehical></RequireAuth>}></Route>
@@ -56,3 +61,4 @@ function App() {
 }
 
 export default App;
+
