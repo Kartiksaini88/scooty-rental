@@ -4,12 +4,14 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import './home.css'
 
-export const Home = ({data})=>{
+export const Home = ({loading,error,data})=>{
 
   
     return(
         <div className="home-div">
-            <div className="heading"><h2>Vehical Rental</h2></div>
+            <div className="heading"><h2>Vehicle Rental</h2></div>
+            {loading && <div><h2>Loading....</h2></div>}
+            {error && <div><h2>Error....</h2></div>}
             <div className="rental-div">
                 {data.map((e,i)=>(
                     <div key={nanoid()} className="every-rental-div">
